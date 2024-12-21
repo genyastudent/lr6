@@ -1,0 +1,33 @@
+#include <iostream>
+#include <vector>
+
+int main() {
+    setlocale(LC_ALL, "Ru");
+    int N;
+    std::cout << "Введите число N (N > 2): ";
+    std::cin >> N;
+
+    if (N <= 2) {
+        std::cout << "N должно быть больше 2." << std::endl;
+        return 1;
+    }
+
+    // Создаем вектор для хранения последовательности Фибоначчи
+    std::vector<int> fibonacci(N);
+    fibonacci[0] = 1; // Первый элемент
+    fibonacci[1] = 1; // Второй элемент
+
+    // Генерация остальных элементов
+    for (int i = 2; i < N; ++i) {
+        fibonacci[i] = fibonacci[i - 2] + fibonacci[i - 1];
+    }
+
+    // Вывод массива
+    std::cout << "Последовательность Фибоначчи: ";
+    for (int i = 0; i < N; ++i) {
+        std::cout << fibonacci[i] << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
